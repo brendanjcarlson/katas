@@ -98,6 +98,14 @@ void reverse_linked_list(Node **head) {
     *head = prev;
 }
 
+int count_elements(Node **head) {
+    int count = 0;
+    for (Node* curr = *head; curr != NULL; curr = curr->next) {
+        count++;
+    }
+    return count;
+}
+
 void display_linked_list(Node **head) {
     for (Node* curr = *head; curr != NULL; curr = curr->next) {
         printf("%d -> ", curr->data);
@@ -139,6 +147,9 @@ int main(int argc, char* argv[]) {
     reverse_linked_list(&head);
 
     display_linked_list(&head);
+
+    int count = count_elements(&head);
+    printf("%d\n", count);
 
     deallocate_linked_list(&head);
     return 0;
